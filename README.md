@@ -8,6 +8,7 @@ This code was built in MATLAB for windows, and tested from V2020a to V2022a. It 
 The toy model has a built-in function to simulate a three clear-sky days in a TMCFs. However, users are encouraged to perform the simulation with their own data sets. So, the code can be run in the following way:
   - Using default data set: EPI_WBV7()
   - Using own data set: EPI_WBV7(input)<br/><br/>
+  
 The input should be a table in the workspace containing the following variables:
   - Date-Time (dt): This variable has to be in a date-time format compatible with the datetime() function.
   - Air temperature record (Ta_C): It has to be measured close to the canopy, but not in touch with the epiphytes.
@@ -15,7 +16,9 @@ The input should be a table in the workspace containing the following variables:
   - Precipitation record (RF): It may be measured with precipitation gauges in mm per hour.
   - Occult precipitation (OP): It may be measured with fog gauges in mm per hour.
   - Shortwave radiation (SW): It must be measured above canopy in Watts per square meter.<br/><br/>
-The required name for the variable in the table is established in parenthesis.
+  
+  
+The required name for the variable in the table is established between parenthesis.
 
 # Outputs
 The outputs are saved in a folder automatically created for the date and time of the running. This folder contains 2 csv and 18 PNG. The data.csv file contains all variables required to perform the model. The datags.csv contains information about stomatal conductance aperture. The following table specifies the variables in th data.csv file:
