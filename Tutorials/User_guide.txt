@@ -1,6 +1,6 @@
 # Tutorial for the Epiphyte Mat Energy and Water Mass Balance Model 
-1. Download repository Tutorial
-2. Create a new MALTAB script and save it in the folder where you stored repository Tutorial
+1. Download repository Tutorials
+2. Create a new MALTAB script and save it in the folder where you stored repository Tutorials
 3. Create the variable data and use the function winput to create a dataset of n days where n is an integer number.
 e.g., 
   data = winput(3)
