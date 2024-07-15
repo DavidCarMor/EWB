@@ -6,7 +6,7 @@ The current repository stores the code for epiphyte mats' energy and water mass 
 Carchipulla-Morales, D., Corbett, D., Vaughan, D., Gotsch, D., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model to simulate water and energy budgets for epiphytic mats.
 
 # Methodology
-The water mass balance of the epiphyte mat is solved for a water bucket in the canopy, i.e., the epiphyte mat. In the TMCF canopies, the epiphyte mat is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. Rainfall and fog interception are approximated using as a fraction of bulk water input times the fractional grid canopy area covered by epiphytes. Evapotranspiration and its reciprocal, Dew Deposition, are estimated using the Penman-Monteith equation. Finally, the host tree water uptake is a fraction of the host tree transpiration.
+The water mass balance of the epiphyte mat is solved for a water bucket in the canopy, i.e., the epiphyte mat. In the TMCF canopies, the epiphyte mat is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. Rainfall and fog interception are approximated using a fraction of bulk water input times the fractional grid canopy area covered by epiphytes. Evapotranspiration and its reciprocal, Dew Deposition, are estimated using the Penman-Monteith equation. Finally, the host tree water uptake is a fraction of the host tree transpiration.
 
 ![Fig2_EMB](https://github.com/user-attachments/assets/495d0695-ed9e-46da-b05c-8755802f6932)
 
@@ -15,7 +15,7 @@ Similarly, the energy balance of the epiphyte mat is solved for the fractional g
 ![Fig3_EEB](https://github.com/user-attachments/assets/84cdb0be-baa5-4806-bc50-2f2973e0e823)
 
 # Software specifications
-This code was built in MATLAB and shared as a function. The function has been tested from MATLAB V2020a through MATLAB V2022a. Parameters of the model can be modified and their information can be found in [parameters](Parameters.txt). A tutorial for the model was added to this repository.
+This code was built in MATLAB and shared as a function. The function has been tested from MATLAB V2020a through MATLAB V2022a. The parameters of the model can be modified and their information can be found in [parameters](Parameters.txt). A tutorial for the model was added to this repository.
 
 Technical support can be provided by the corresponding author Dr. Lauren E. L. Lowman at lowmanle@wfu.edu
 
@@ -25,15 +25,15 @@ The input for the function is a MATLAB table object with the following variables
 | Variable | Description |
 | ------------- | ------------- |
 | Ta_K | Air temperature in K |
-| RH | Relative humidty |
-| RF_mm | Rainfall in milimeters |
+| RH | Relative humidity |
+| RF_mm | Rainfall in millimeters |
 | F_mm | Fog in milimeters |
 | SW_Wpms | Shortwave radiation in Watts per meter squared | 
 
 If rainfall or fog were not measured, the data corresponds to clear-sky conditions. The user is encouraged to set all elements in RF_mm and F_mm equal to zero.
 
 # Optional Input Variables
-A couple of optional variables can be added to the input table for the model. They will be used to improve the estimations of the conductance of the aerodynamic boundary layer and the host tree transpiration. If these values are absent, the model creates a constant vector to add as variables in the input table according to the parameters listed on [parameters](Parameters.txt).
+A couple of optional variables can be added to the input table for the model. They will be used to improve the estimations of the conductance of the aerodynamic boundary layer and the host tree transpiration. If these values are absent, the model creates a constant vector to add as a variable in the input table according to the parameters listed on [parameters](Parameters.txt).
 
 | Variable | Description |
 | ------------- | ------------- |
