@@ -1,10 +1,10 @@
 # Tutorial for the Epiphyte Mat Energy and Water Mass Balance Model 
-1. Download repository Tutorials
-2. Create a new MALTAB script and save it in the folder where you stored repository Tutorials
+1. Download the repository Tutorials
+2. Create a new MATLAB script and save it in the folder where you stored the repository Tutorials
 3. Create the variable data and use the function winput to create a dataset of n days where n is an integer number.
 e.g., 
   data = winput(3)
-4. Run the function EPI_WBV9 assigning name to the three outputs this function has.
+4. Run the function EPI_WBV9 assigning the name to the three outputs of the function EPI_WBV9.
 e.g., 
   [out_data,opt,datags]=EPI_WBV9(data)
 5. Plot your results.
