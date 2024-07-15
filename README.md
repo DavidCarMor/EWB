@@ -1,8 +1,11 @@
-# EWB toy model
-The current repository stores the code of the toy model of energy and water balance for epiphytes in tropical montane cloud forests' canopies. It uses a numerical approach with hourly timesteps. Some parameters used in the model should be adjusted for the area of interest.
+# Epiphyte Mat Energy and Water Mass Balance Model
+The current repository stores the code for the energy and water mass balance model for epiphyte mats. We consider epiphytes in the host tree as water storage inside the canopy that is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. This is an uncalibrated model that depicts the interactions of epiphyte mats in the hydrology of Tropical Montane Cloud Forest (TMCF) canopies. 
+
+[Fig1_EWSF.pdf](https://github.com/user-attachments/files/16238364/Fig1_EWSF.pdf)
 
 # Software specifications
-This code was built in MATLAB for windows, and tested from V2020a to V2022a. It will require Symbolic Math Toolbox to be installed.
+This code was built in MATLAB, and tested from V2020a through V2022a.
+
 
 # Inputs
 The toy model has a built-in function to simulate a three clear-sky days in a TMCFs. However, users are encouraged to perform the simulation with their own data sets. So, the code can be run in the following way:
