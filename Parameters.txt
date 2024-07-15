@@ -62,7 +62,7 @@ Input parameters:
   is 293.15 K,
   - t0: Sunrise time. Default value is 7 LST, and
   - wf: Water-Biomass weight ratio. Default value is 4.
-%
+
 Output parameters:
   - h: Epiphyte mat depth in m, = (opt.Se_max/1000)/opt.porosity,
   - LAIe: Epiphyte mat leaf area index in m2/m2,
