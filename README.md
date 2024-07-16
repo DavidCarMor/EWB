@@ -3,7 +3,7 @@ The current repository stores the code for epiphyte mats' energy and water mass 
 ![Fig1_EWSF](https://github.com/user-attachments/assets/917ad192-96f3-42bf-a8fe-7df3b973b1ec)
 
 # Journal article
-Carchipulla-Morales, D., Corbett, D., Vaughan, D., Gotsch, D., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model to simulate water and energy budgets for epiphytic mats.
+Carchipulla-Morales, D., Corbett, H., Vaughan, D., Gotsch, S., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model to simulate water and energy budgets for epiphytic mats.
 
 # Methodology
 The water mass balance of the epiphyte mat is solved for a water bucket in the canopy, i.e., the epiphyte mat. In the TMCF canopies, the epiphyte mat is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. Rainfall and fog interception are approximated using a fraction of bulk water input times the fractional grid canopy area covered by epiphytes. Evapotranspiration and its reciprocal, Dew Deposition, are estimated using the Penman-Monteith equation. Finally, the host tree water uptake is a fraction of the host tree transpiration.
