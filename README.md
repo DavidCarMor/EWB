@@ -38,7 +38,7 @@ A couple of optional variables can be added to the input table for the model. Th
 | Variable | Description |
 | ------------- | ------------- |
 | AP_Pa | Atmospheric pressure in pascals|
-| WS_mps | Wwindspeed in meters per second |
+| WS_mps | Windspeed in meters per second |
 
 # Output Variables
 The function returns three objects: an updated version of the input table, a cell array of the parameters in the model, and a table with information on the stomatal conductance of the vascular component of the epiphyte mat. Go to [parameters](Parameters.txt) for details of the parameters in the model. Information on the Jarvis function used to describe the stomatal conductance of the vascular component of the epiphyte mat can be found in Lowman, Lauren EL, and Luis Dil Godoy. "Simulating stomatal response to cloud immersion for montane cloud forests in the Southern Appalachians." Agricultural and Forest Meteorology 295 (2020): 108165.
@@ -56,7 +56,7 @@ The function returns three objects: an updated version of the input table, a cel
 | es_epi | Water vapor pressure of saturated epiphyte mat in Pa | 
 | ETe | Evapotranspiration from epiphyte mats mm/h |
 | ETht | Evapotranspiration from host tree mm/h |
-| g_ba | Canopy boundary later in m/s |
+| g_ba | Canopy boundary layer in m/s |
 | g_e | Epiphyte mat water conductance in m/s |
 | g_sve | Stomatal conductance of vascular epiphytes in m/s |
 | H | Epiphyte mat sensible heat in W/m2 |
@@ -70,6 +70,6 @@ The function returns three objects: an updated version of the input table, a cel
 | Te_C | Epiphyte mat temperature in C |
 | Te_K | Epiphyte mat temperature in K |
 | TF | Throughfall in mm/h |
-| theta_e | Epiphyte mat volumectric water content in m3/m3 | 
+| theta_e | Epiphyte mat volumetric water content in m3/m3 | 
 | VPD | Air Vapor Pressure Deficit in Pa |
 | WUht | Host tree water uptake in mm/h |
