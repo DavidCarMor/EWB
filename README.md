@@ -51,7 +51,6 @@ The function returns three objects: an updated version of the input table, a cel
 | DDe | Dew deposition on the epiphyte mat in mm/h |
 | EAVD | Epiphyte-atmosphere vapor pressure deficit in Pa |
 | e_a | Water vapor pressure of air in Pa |
-| e_epi | Water vapor pressure of the epiphyte mat in Pa |
 | em_a | Air emissivity in W/m2/W/m2 |
 | es_a | Water vapor pressure of saturated air in Pa | 
 | es_epi | Water vapor pressure of saturated epiphyte mat in Pa | 
