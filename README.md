@@ -64,7 +64,7 @@ The function returns three objects: an updated version of the input table, a cel
 | Ie | Interception of rainfall and fog in mm |
 | phi_net | Net radiation received by the epiphyte mat in W/m2 |
 | psi_e | Epiphyte mat water potential in m |
-| Se | Epiphyte mat water content in mm/h |
+| Se | Epiphyte mat water content in mm |
 | SF | Stemflow in mm/h |
 | sm | Epiphyte mat moisture in kg/kg |
 | Te_C | Epiphyte mat temperature in C |
