@@ -10,9 +10,9 @@ Input parameters:
   - b: Texture coefficient of water potential curve. The default value is 7.75,
   - fe: Fractional grid canopy area covered by epiphytes. The default value is 0.3 m2/m2,
   - c_F: Fraction of fog captured in the canopy. The default value is 0.3 mm/mm,
-  - c_p: Specific heat capacity of the air. The default value is 1010 W s/kg/K,
-  - c_pw: Specific heat capacity of the water. The default value is 4182 W s/kg/K,
-  - c_pe: Specific heat capacity of the dry epiphyte mat. The default value is 1007.75 W s/kg/K,
+  - c_p: Specific heat capacity of air. The default value is 1010 W s/kg/K,
+  - c_pw: Specific heat capacity of water. The default value is 4182 W s/kg/K,
+  - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.14 mm/mmm,
   - day_l: Day length. The default value is 12 h,
   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
