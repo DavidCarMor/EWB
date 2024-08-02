@@ -42,7 +42,7 @@ Input parameters:
   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 69434.57 kg/ha,
   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 10585.79 kg/ha,
   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
-  - psi_ae: Air-Entry water potential of epiphyte mat (sandy clay soil).
+  - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
   The default value is -0.356 m,
   - psi_fc: Water potential at epiphyte mat field capacity. The default value
   is -132.2946 m,
