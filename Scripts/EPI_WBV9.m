@@ -25,7 +25,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 % Input parameters:
 %   - alph:Albedo of the canopy. Default value is 0.35,
 %   - AP_Pa: fixed atmospheric pressure in Pascals used to create variable
-%   AP_Pa in table data. Default value is 101500 Pa,
+%   AP_Pa in table data. Default value is 88000 Pa,
 %   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
 %   Default value is 0.012 m2*s/umol with the following conversion factor
 %   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
@@ -151,7 +151,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 arguments % Defaults
     data table % Weather data
     opt.alph double = 0.35 % Vegetation albedo [W m-2 / W m-2]
-    opt.AP_Pa double = 101500 % [Pa] https://www.worldmeteo.info/es/america-central/costa-rica/monteverde/tiempo-136622/
+    opt.AP_Pa double = 88000 % [Pa] https://www.worldmeteo.info/es/america-central/costa-rica/monteverde/tiempo-136622/
     opt.b1 double = 0.012*2.02 % Parameter for stomatal sensitivity to incoming solar radiation [m2 W-1]
     opt.b double = 7.75 % Exponent of Soil Mositure in soil-water retention curve (Dingman, pg 338)
     opt.fe double = 0.3 % Fractional grid canopy area covered by epiphytes [m2 m-2]
@@ -298,7 +298,7 @@ else % Default boundary layer
 end
 
 % Atmospheric pressure (Check if input table has pressure data)
-if sum(strcmp('AP',data.Properties.VariableNames))~=1
+if sum(strcmp('AP_Pa',data.Properties.VariableNames))~=1
     data.AP_Pa = zeros(size(data,1),1)+opt.AP_Pa; % Fixed Atmospheric Pressure [Pa]
 end
 
@@ -363,7 +363,6 @@ for i = 1:size(data,1)
     % Epiphyte net radiation [W m-2]
     % Air emissivity: https://www.acs.org/content/acs/en/climatescience/atmosphericwarming/singlelayermodel.html#:~:text=The%20average%20temperature%20of%20the,atmospheric%20emissivity%20of%20about%200.8.
     PHIe = data.SW_Wpms(i)*exp(-opt.k_b*opt.LAI*(1-opt.fe));
-    % SW_in_out = PHIe*(1-opt.alph); % Withouth cosine because its embedded in measurements
     SW_in_out = PHIe*data.cos_z(i)*(1-opt.alph);
     LW_in_out = opt.sigma*(data.epsiln_a(i)*(data.Ta_K(i)^4) - opt.epsiln_v*(data.Te_K(i)^4));
     data.phi_net(i) = (SW_in_out + LW_in_out)*opt.fe;
