@@ -23,66 +23,65 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   parameters ga and gb.
 %
 % Input parameters:
-%   - alph:Albedo of the canopy. Default value is 0.35,
-%   - AP_Pa: fixed atmospheric pressure in Pascals used to create variable
-%   AP_Pa in table data. Default value is 88000 Pa,
+%   - alph: Albedo of the canopy. The default value is 0.35,
+%   - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable
+%   AP_Pa in table data. The default value is 88000 Pa,
 %   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
-%   Default value is 0.012 m2*s/umol with the following conversion factor
+%   The default value is 0.012 m2*s/umol with the following conversion factor
 %   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
-%   - b: Texture coefficient of water potential curve. Default value is 7.75,
-%   - fe: Fractional grid canopy area covered by epiphytes. Default value is 0.3 m2/m2,
-%   - c_F: Fraction of fog captured in the canopy. Default value is 0.3 mm/mm,
-%   - c_p: Specific capacity of the air. Default value is 1010 W s/kg/K,
-%   - c_pw: Specific capacity of the water. Default value is 4182 W s/kg/K,
-%   - c_pe: Specific capacity of the dry epiohyte mat. Default value is 1007.75 W s/kg/K,
-%   - c_RF: Fraction of rainfall captured in the canopy. Default value is 0.14 mm/mmm,
-%   - day_l: Day length. Default value is 12 h,
-%   - Dx: Temperature dependent parameter for stomatal sensitivity to EAVD.
-%   Default value is 1250 Pa,
-%   - epsiln_a: Night air emissivity. Default value is 0.8 W/m2/W/m2,
-%   - epsiln_v: Emissivity of vegetation. Default value is 0.95 W/m2/W/m2,
-%   - g: Gravitational acceleration. Default value is 9.814 m/s2,
-%   - gamma_w: Psychrometric constant. Default value is 65.55 Pa/K,
-%   - g_a: Aerodynamic conductance of canopy boundary layer. Default value
+%   - b: Texture coefficient of water potential curve. The default value is 7.75,
+%   - fe: Fractional grid canopy area covered by epiphytes. The default value is 0.3 m2/m2,
+%   - c_F: Fraction of fog captured in the canopy. The default value is 0.3 mm/mm,
+%   - c_p: Specific heat capacity of air. The default value is 1010 W s/kg/K,
+%   - c_pw: Specific heat capacity of water. The default value is 4182 W s/kg/K,
+%   - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
+%   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.14 mm/mmm,
+%   - day_l: Day length. The default value is 12 h,
+%   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
+%   The default value is 1250 Pa,
+%   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
+%   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
+%   - gamma_w: Psychrometric constant. The default value is 65.55 Pa/K,
+%   - g_a: Aerodynamic conductance of canopy boundary layer. The default value
 %   is 0.02 m/s,
-%   - g_b: Additional aerodynamic conductance of canopy boundary layer. Default value
+%   - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value
 %   is 0.02 m/s,
-%   - gsve_max: Max. vascular epiphyte stomatal conductance. Default value
+%   - gsve_max: Max. vascular epiphyte stomatal conductance. The default value
 %   is 0.000000482654 m/s,
-%   - gnve: Non-vascular epiphyte water conductance. Default value is 0.01 m/s,
-%   - gsht_max: Max. host tree stomatal conductance. Default value is 0.0124 m/s,
-%   - h_c: Canopy height. Default value is 30 m,
-%   - h_f1: Zero displacement factor. Default value is 0.7 m/m,
-%   - h_f2: Heat and vapour - momentum transfer ratio 0.2,
-%   - k: von Karman's constant. Default value is 0.41,
-%   - k2: Parameter for stomatal sensitivity temperature stress. Default 
+%   - gnve: Non-vascular epiphyte water conductance. The default value is 0.01 m/s,
+%   - gsht_max: Max. host tree stomatal conductance. The default value is 0.0124 m/s,
+%   - h_c: Canopy height. The default value is 30 m,
+%   - h_f1: Zero displacement factor. The default value is 0.7 m/m,
+%   - h_f2: Heat and vapor - momentum transfer ratio 0.2,
+%   - k: von Karman's constant. The default value is 0.41,
+%   - k2: Parameter for stomatal sensitivity temperature stress. The default 
 %   value is 0.0016 1/K2,
-%   - k_b: Beer's law extintion coefficient. Default value is 0.5,
-%   - latitude: Geographical latitude of the epiphyte mat. Default value is 10.3°,
-%   - LAI: Leaf area index of the forest. Default value is 7.7 m2/m2,
-%   - lambda_w: Latent heat of vaporisation of water. Default value is 2.50e6 J/kg,
-%   - m_e: Epiphyte mat biomass in forest canopy. Default value is 95673 kg/ha,
-%   - VEDB: Vascular epiphyte biomass in forest canopy. Default value is 69434.57 kg/ha,
-%   - NVEDB: Non-vascular epiphyte biomass in forest canopy. Default value is 10585.79 kg/ha,
+%   - k_b: Beer's law extinction coefficient. The default value is 0.5,
+%   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
+%   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
+%   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
+%   - m_e: Epiphyte mat biomass in forest canopy. The default value is 95673 kg/ha,
+%   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 69434.57 kg/ha,
+%   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 10585.79 kg/ha,
 %   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
-%   - psi_ae: Air-Entry water potential of epiphyte mat (sandy clay soil).
-%   Default value is -0.356 m,
-%   - psi_fc: Water potential at epiphyte mat field capacity. Default value
+%   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
+%   The default value is -0.356 m,
+%   - psi_fc: Water potential at epiphyte mat field capacity. The default value
 %   is -132.2946 m,
-%   - psi_wp: Water potential at epiphyte mat wilting point. Default value
+%   - psi_wp: Water potential at epiphyte mat wilting point. The default value
 %   is -1529.6164 m,
-%   - rho: Air density. Default value is 1.2 kg/m3,
-%   - rho_s: Soil organic matter density. Default value is 1300 kg/m3,
-%   - rho_w: Density of water. Default value is 998 kg/m3,
-%   - s: Pressure-temperature curve slope. Default value is 189 Pa/K,
-%   - So: Initial water content. Default value is NaN mm,
+%   - rho: Air density. The default value is 1.2 kg/m3,
+%   - rho_s: Soil organic matter density. The default value is 1300 kg/m3,
+%   - rho_w: Density of water. The default value is 998 kg/m3,
+%   - s: Pressure-temperature curve slope. The default value is 189 Pa/K,
+%   - So: Initial water content. The default value is NaN mm,
 %   - sigma: Stefan - Boltzmann constat. Default value is 5.67e-8 W/m2/K4,
-%   - SWclr: Clear Sky Shortwave radiation. Default value is 1100 W/m2,
-%   - Te_Ta: Initial guess for difference between Te and Ta. Default value is -0.5 K,
-%   - tau: Fraction of transpiration of the host tree. Default value is 0.15,
-%   - Topt: Optimum air temperature for stomata conductance. Default value
+%   - SWclr: Clear Sky Shortwave radiation. The default value is 1100 W/m2,
+%   - Te_Ta: Initial guess for the difference between Te and Ta. The default value is -0.5 K,
+%   - tau: Fraction of transpiration of the host tree. The default value is 0.15,
+%   - Topt: Optimum air temperature for stomata conductance. The default value
 %   is 293.15 K,
-%   - t0: Sunrise time. Default value is 7 LST, and
+%   - t0: Sunrise time. The default value is 7 am LST, and
 %   - wf: Water-Biomass weight ratio. Default value is 4.
 %
 % Output parameters:
@@ -101,7 +100,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   - theta_wp: Volumetric water content of the epiphyte mat at wilting pointin m3/m3
 %
 % Output variables:
-%   - c_pd: Specific heat capacity of the epiphyte mat in W/s/kg/K,
+%   - c_pe: Specific heat capacity of the epiphyte mat in W/s/kg/K,
 %   - clf: Estimation of cloud cover -, 
 %   - cos_z: Cosine of zenith angle -,
 %   - DDe: Dew deposition on the epiphyte mat in mm/h,
@@ -157,13 +156,12 @@ arguments % Defaults
     opt.c_F double = 0.3 % Fraction of fog captured in the canopy [mm/mm]
     opt.c_p double = 1010 % Specific capacity of the air [W s-1 kg-1 K-1]
     opt.c_pw double = 4182 %Specific capacity of the water [W s-1 kg-1 K-1]
-    opt.c_pe double = 1007.75 % Specific capacity of the epiphyte tank [W s kg-1 K-1]
+    opt.c_pd double = 1007.75 % Specific capacity of the epiphyte tank [W s kg-1 K-1]
     opt.c_RF double = 0.14 % Fraction of rainfall captured in the canopy [mm/mmm]
     opt.day_l double = 12 % Day length [h]
     opt.Dx double = 1250 % Temperature dependent parameter for stomatal sensitivity to EAVD [Pa]
     opt.epsiln_a double =0.8 % Night air emissivity 
     opt.epsiln_v double = 0.95 % Emissivity of vegetation [W m-2 / W m-2]
-    opt.g double = 9.814 % Gravity [m s-2]
     opt.gamma_w double = 65.55 %Psychrmetric constant [Pa K-1]
     opt.g_a double = 20*(1/1000) % Aerodynamic conductance [m s-1]
     opt.g_b double = 20*(1/1000) % Additional boundary layer conductance [m s-1]
@@ -202,7 +200,7 @@ arguments % Defaults
 end
 
 %% Vectors to store data
-data.c_pd = zeros(size(data,1),1); % Specific heat capacity of the epiphyte mat in [W/s/kg/K]
+data.c_pe = zeros(size(data,1),1); % Specific heat capacity of the epiphyte mat in [W/s/kg/K]
 data.clf = zeros(size(data,1),1); % Estimation of cloud cover 
 data.DDe = zeros(size(data,1),1); % Dew deposition on the epiphyte mat [mm/h]
 data.EAVD = zeros(size(data,1),1); % Epiphyte-atmosphere vapor pressure deficit [Pa]
@@ -395,11 +393,11 @@ for i = 1:size(data,1)
     data.H(i)=(data.Ta_K(i)-data.Te_K(i))*opt.c_p*opt.rho*gah;
 
     % Heat capacity of the composite [W s/kg/K]
-    data.c_pd(i)=cpe(data.Se(i),opt.c_pw,opt.c_pe,opt.rho_w,opt.m_e);
+    data.c_pe(i)=cpe(data.Se(i),opt.c_pw,opt.c_pd,opt.rho_w,opt.m_e);
 
     % Energy Balance (Epiphyte temperature [K and °C])
     if i < size(data,1)
-        data.Te_K(i+1) = data.Te_K(i) + ( (3600/m_cp(data.Se(i),opt.c_pw,opt.c_pe,...
+        data.Te_K(i+1) = data.Te_K(i) + ( (3600/m_cp(data.Se(i),opt.c_pw,opt.c_pd,...
             opt.rho_w,opt.m_e)) * (data.phi_net(i)+data.L(i)+data.H(i)) ); 
         data.Te_C(i+1) = data.Te_K(i+1)-273.15; 
 
@@ -742,11 +740,11 @@ for i = 1:size(data,1)
     data.H(i)=(data.Ta_K(i)-data.Te_K(i))*opt.c_p*opt.rho*gah;
 
     % Heat capacity of the composite [W s/kg/K]
-    data.c_pd(i)=cpe(data.Se(i),opt.c_pw,opt.c_pe,opt.rho_w,opt.m_e);
+    data.c_pe(i)=cpe(data.Se(i),opt.c_pw,opt.c_pd,opt.rho_w,opt.m_e);
 
     % Energy Balance (Epiphyte temperature [K and °C])
     if i < size(data,1)
-        data.Te_K(i+1) = data.Te_K(i) + ( (3600/m_cp(data.Se(i),opt.c_pw,opt.c_pe,...
+        data.Te_K(i+1) = data.Te_K(i) + ( (3600/m_cp(data.Se(i),opt.c_pw,opt.c_pd,...
             opt.rho_w,opt.m_e)) * (data.phi_net(i)+data.L(i)+data.H(i)) ); 
         data.Te_C(i+1) = data.Te_K(i+1)-273.15; 
 
