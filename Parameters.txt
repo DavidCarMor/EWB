@@ -59,7 +59,7 @@ Input parameters:
   - tau: Fraction of transpiration of the host tree. The default value is 0.15,
   - Topt: Optimum air temperature for stomata conductance. The default value
   is 293.15 K,
-  - t0: Sunrise time. The default value is 7 LST, and
+  - t0: Sunrise time. The default value is 7 am LST, and
   - wf: Water-biomass weight ratio. The default value is 4.
 
 Output parameters:
