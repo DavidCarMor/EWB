@@ -19,7 +19,6 @@ Input parameters:
   The default value is 1250 Pa,
   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
-  - g: Gravitational acceleration. The default value is 9.814 m/s2,
   - gamma_w: Psychrometric constant. The default value is 65.55 Pa/K,
   - g_a: Aerodynamic conductance of canopy boundary layer. The default value
   is 0.02 m/s,
