@@ -3,24 +3,26 @@
 2. Create a new MATLAB script and save it in the folder where you stored the repository Tutorials
 3. Create the variable data and use the function winput to create a dataset of n days where n is an integer number.
 e.g., 
-  data = winput(3)
+  data = winput(3);
 4. Run the function EPI_WBV9 assigning the name to the three outputs of the function EPI_WBV9.
 e.g., 
-  [out_data,opt,datags]=EPI_WBV9(data)
+  [out_data,opt,datags]=EPI_WBV9(data);
 5. Plot your results.
 e.g.,
   figure()
   % Stairs for nighttime
-  sh = stairs((0:size(out_data,2)-1)',(datai.SW_Wpms<=0)*max(out_data.ETe));
-  % x = [sh.XData(1),repelem(sh.XData(2:end),2)];
+  sh = stairs((0:size(out_data,1)-1)',(data.SW_Wpms<=0)*(max(out_data.ETe)+0.01));
+  % Filling out stairs using polygon vertices
+  x = [sh.XData(1),repelem(sh.XData(2:end),2)]; 
   y = [repelem(sh.YData(1:end-1),2),sh.YData(end)];
   fill([x,fliplr(x)],[y,0*ones(size(y))], [220, 220, 220]./255, 'LineStyle','none')
   % Actual plot
   hold on
-  plot((0:size(out_data,2)-1)',datai.DDe,'-','Color',"#0072BD",'LineWidth',2) % Dew deposition
-  plot((0:size(out_data,2)-1)',datai.ETe,'-','Color',"#D95319",'LineWidth',2) % Evapotranspiration
-  ylabel('DD_e and ET_e [mm h^{-1}]'); xlim([0,size(out_data,2)-1]); ylim([0,0.06]);
-  ax = gca; ax.XTick = 0:12:max_hour; box(ax,'on');
+  plot((0:size(out_data,1)-1)',out_data.DDe,'-','Color',"#0072BD",'LineWidth',2) % Dew deposition
+  plot((0:size(out_data,1)-1)',out_data.ETe,'-','Color',"#D95319",'LineWidth',2) % Evapotranspiration
+  % Extra parameters
+  ylabel('DD_e and ET_e [mm h^{-1}]'); xlim([0,size(out_data,2)-1]); ylim([0,(max(out_data.ETe)+0.01)]);
+  ax = gca; ax.XTick = 0:12:size(out_data,1)-1; box(ax,'on');
   legend('DD_e', 'ET_e','Location','northeast','Orientation','horizontal')
   hold off
 6. Repeat the process with new parameters
