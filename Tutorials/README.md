@@ -1,9 +1,11 @@
 # Running the model with ideal data
 
-## 1. Generating ideal data
+## 1. Background
+
+## 2. Generating ideal data
 
 
-## 2. Simulating balance with default parameters
+## 3. Simulating balance with default parameters
 ### Example
     python ee_Landsat_LAI_export.py -o <asset_dir> -p <path> -r <row> 
         -s <start_date> -d <end_date>
@@ -16,7 +18,7 @@
     -s  The start date to export image in YYYY-MM-dd
     -e  The end date (exclusive) to export image in YYYY-MM-dd
 
-## 3. Modifying parameters
+## 4. Modifying parameters
 
 ### Example
 For example, 
