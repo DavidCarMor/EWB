@@ -1,3 +1,4 @@
+<p align="justify">
 # Epiphyte Mat Energy and Water Mass Balance Model
 The current repository stores the code for epiphyte mats' energy and water mass balance model. We consider epiphytes in the host tree as water storage inside the canopy that is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. This uncalibrated model depicts the interactions of epiphyte mats in the hydrology of Tropical Montane Cloud Forest (TMCF) canopies. 
 ![Fig1_EWSF](https://github.com/user-attachments/assets/917ad192-96f3-42bf-a8fe-7df3b973b1ec)
@@ -73,3 +74,5 @@ The function returns three objects: an updated version of the input table, a cel
 | theta_e | Epiphyte mat volumetric water content in m3/m3 | 
 | VPD | Air Vapor Pressure Deficit in Pa |
 | WUht | Host tree water uptake in mm/h |
+
+</p>
