@@ -1,11 +1,11 @@
 ## Background
 Details of the basis of the model and information on its peer-reviewed publication can be found on the [home page](https://github.com/DavidCarMor/EWB) of this repository. 
 
-The code for this model was built in [MATLAB](https://www.mathworks.com/products/matlab.html), whose license usually can be accessed through your academic institution. 
+The code for this model was built in [MATLAB](https://www.mathworks.com/products/matlab.html), whose license usually can be accessed through your academic institution. The EWB code can be downloaded from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder of this repository.
 
-The forcing variables of the model are air temperature in Kelvin degrees, relative humidity in unit fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second can be added as forcing data for the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
+The forcing variables of the model are air temperature in Kelvin degrees, relative humidity in unit fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second can be added as forcing data for the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat, and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
 
-## Generating ideal data
+## Requirements
 
 
 ## Simulating balance with default parameters
