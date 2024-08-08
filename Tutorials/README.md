@@ -1,7 +1,7 @@
 # Running the model with ideal data
 
 ## 1. Background
-["home page"](https://github.com/DavidCarMor/EWB/edit/main//README.md) of the repository.
+[home page](https://github.com/DavidCarMor/EWB/edit/main//README.md) of the repository.
 
 ## 2. Generating ideal data
 
