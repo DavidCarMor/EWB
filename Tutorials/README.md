@@ -1,12 +1,14 @@
-# Running the model with ideal data
+## Background
+Details of the basis of the model and information on its peer-reviewed publication can be found on the [home page](https://github.com/DavidCarMor/EWB) of this repository. 
 
-## 1. Background
-[home page](https://github.com/DavidCarMor/EWB) of the repository.
+The code for this model was built in [MATLAB](https://www.mathworks.com/products/matlab.html), whose license usually can be accessed through your academic institution. 
 
-## 2. Generating ideal data
+The forcing variables of the model are air temperature in Kelvin degrees, relative humidity in unit fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second can be added as forcing data for the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
+
+## Generating ideal data
 
 
-## 3. Simulating balance with default parameters
+## Simulating balance with default parameters
 ### Example
     python ee_Landsat_LAI_export.py -o <asset_dir> -p <path> -r <row> 
         -s <start_date> -d <end_date>
@@ -19,7 +21,7 @@
     -s  The start date to export image in YYYY-MM-dd
     -e  The end date (exclusive) to export image in YYYY-MM-dd
 
-## 4. Modifying parameters
+## Modifying parameters
 
 ### Example
 For example, 
