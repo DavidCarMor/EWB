@@ -7,7 +7,7 @@ The forcing variables of the model are air temperature in Kelvin degrees, relati
 
 ## Preallocating variables
 Once you downloaded the EPI_WBV9 and winput functions from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder, open matlab and set your working directory to the same where those functions were stored.
-![step1](https://github.com/user-attachments/assets/f0663e70-33d0-4d1d-8a4f-f8b8fabb719d)
+[step1](https://github.com/user-attachments/assets/f0663e70-33d0-4d1d-8a4f-f8b8fabb719d)
 
 
 ## Simulating balance with default parameters
