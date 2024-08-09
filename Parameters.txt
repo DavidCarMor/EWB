@@ -1,7 +1,7 @@
 The model starts running with default input parameters that are used to compute intermediate parameters and variables for the outputs. 
 
 Input parameters:
-  - alph: Albedo of the canopy. The default value is 0.35,
+  - alph: Albedo of the canopy. The default value is 0.15,
   - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable
   AP_Pa in table data. The default value is 88000 Pa,
   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
@@ -38,14 +38,14 @@ Input parameters:
   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
-  - m_e: Epiphyte mat biomass in forest canopy. The default value is 95673 kg/ha,
-  - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 69434.57 kg/ha,
-  - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 10585.79 kg/ha,
+  - m_e: Epiphyte mat biomass in forest canopy. The default value is 53314 kg/ha,
+  - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 37319.8kg/ha,
+  - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331.4 kg/ha,
   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
   The default value is -0.356 m,
   - psi_fc: Water potential at epiphyte mat field capacity. The default value
-  is -132.2946 m,
+  is -16.4113 m,
   - psi_wp: Water potential at epiphyte mat wilting point. The default value
   is -1529.6164 m,
   - rho: Air density. The default value is 1.2 kg/m3,
