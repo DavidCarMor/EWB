@@ -6,10 +6,13 @@ The code for this model was built in [MATLAB](https://www.mathworks.com/products
 The forcing variables of the model are air temperature in Kelvin degrees, relative humidity in unit fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second can be added as forcing data for the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat, and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
 
 ## Preallocating variables
-Download the EPI_WBV9 and winput functions from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder, open matlab and set your working directory to the same where those functions were stored.<br />
+1. Download the EPI_WBV9 and winput functions from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder, open matlab and set your working directory to the same where those functions were stored.<br />
 ![step1](https://github.com/user-attachments/assets/f0663e70-33d0-4d1d-8a4f-f8b8fabb719d)
 
+2. We will create a MATLAB script to work with the model for this tutorial.<br />
+![Step2](https://github.com/user-attachments/assets/29048e14-0401-4de9-b25e-21993e9f0afa)
 
+3. 
 ## Simulating balance with default parameters
 
 ### Example
