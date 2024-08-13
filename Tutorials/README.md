@@ -12,7 +12,20 @@ The forcing variables of the model are air temperature in Kelvin degrees, relati
 2. We will create a MATLAB script to work with the model for this tutorial.<br />
 ![Step2](https://github.com/user-attachments/assets/29048e14-0401-4de9-b25e-21993e9f0afa)
 
-3. 
+3. As mentioned in the background, the model requires air temperature, relative humidity, rainfall and fog, and shortwave radiation as forcing variables. We will create ideal forcing data by using the function [winput](https://github.com/DavidCarMor/EWB/tree/main/Scripts/winput.m). Nevertheless, the user is encouraged to test the model using its own forcing data as a MATLAB table with the following variables:
+    - Date: Variable storing date time information in the 'yyyy-MM-dd hh:mm:ss' format,
+    - Ta_K: Air temperature in Kelvin degrees,
+    - RH: Relative humidity of the air in unit fraction,
+    - RF_mm: Rainfall rate in millimeters,
+    - F_mm: Fog rate in millimeters, and
+    - SW_Wpms: Shortwave radiation in Watts per meter squared.
+
+  To create ideal forcing data with the winput function, use the following lines of code:
+      %% Ideal data
+    n = 2; % Number of days of simulation
+    data = winput(2); % Ideal forcing data
+You will notice that rainfall and fog rates are defined to be equal to zero as this ideal data is re-creating a dry-down event.
+ 
 ## Simulating balance with default parameters
 
 ### Example
