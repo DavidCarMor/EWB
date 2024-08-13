@@ -21,6 +21,7 @@ The forcing variables of the model are air temperature in Kelvin degrees, relati
     - SW_Wpms: Shortwave radiation in Watts per meter squared.
 
   To create ideal forcing data with the winput function, use the following lines of code:
+  
       %% Ideal data
     n = 2; % Number of days of simulation
     data = winput(2); % Ideal forcing data
