@@ -68,6 +68,8 @@ There are different ways to access the information regarding the default paramet
     output_Se15 =EPI_WBV9(data,So=15); % So=15
     output_Se25 =EPI_WBV9(data,'So',25); % So=25
 
+Note that So is the initial water level in the epiphyte when starting the simulation, and we equated it to 20 mm.
+
 3.2 Now, we can plot and compare those results
 
     % Plotting water level
@@ -85,6 +87,8 @@ There are different ways to access the information regarding the default paramet
     output_Se20_LAI_5 =EPI_WBV9(data,So=20, LAI=5); % So=20 and LAI=5
     output_Se20_fe05 =EPI_WBV9(data,So=20,fe=0.5); % So=20 and fe=0.5
 
+Note that LAI is the Leaf Area Index in the forest2. Similarly, the fractional grid canopy area covered by epiphytes is accessed through the parameter fe.
+
 3.2 Now, we can plot and compare those results
 
     % Plotting water level under different conditions
@@ -99,7 +103,7 @@ There are different ways to access the information regarding the default paramet
 Despite these simulations being initiated with the same water level, we can observe steeper changes in the water levels of the second curve.
 
 ## 4. Exporting data
-It is possible to export the simulation results to a local machine. Nevertheless, it is suggested to turn the timetable object that stores the output data from the model into a table object before exporting the results to a local machine.
+It is possible to export the simulation results to a local machine. Nevertheless, the user is suggested to turn the timetable object that stores the output data into a table object before exporting the results to a local machine.
 
     output_table = timetable2table(output_data); % Changing the format of the object
     writetable(output_table,'./results_test1.csv') % './' saves the file in your current working directory
