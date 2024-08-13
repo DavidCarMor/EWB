@@ -68,7 +68,7 @@ There are different ways to access the information regarding the default paramet
     output_Se15 =EPI_WBV9(data,So=15); % So=15
     output_Se25 =EPI_WBV9(data,'So',25); % So=25
 
-Note that So is the initial water level in the epiphyte when starting the simulation, and we equated it to 20 mm.
+Note that So is the initial water level in the epiphyte when starting the simulation, and we equated it to 15 and 25 mm.
 
 3.2 Now, we can plot and compare those results
 
