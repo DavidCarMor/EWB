@@ -29,7 +29,7 @@ You will notice that rainfall and fog rates are constant vectors equal to zero a
 ## 2. Simulation with default parameters
 2.1 The model includes default biotic and abiotic parameters that can be used to run our first simulation. There are three outputs from the model: a table with the variables used in the simulation, parameters used in the model, and variability of the stomata conductance of the vascular component of the epiphyte mat. 
 
-The following lines of code will store the three outputs in our MATLAB workspace. If needed, comment on the third line and uncomment one of the other two alternatives according to the desired number of outputs. 
+The following lines of code show how to store the three outputs in our MATLAB workspace using the function [EPI_WBV9](https://github.com/DavidCarMor/EWB/tree/main/Scripts/EPI_WBV9.m). If needed, comment on the third line and uncomment one of the other two alternatives according to the desired number of outputs. 
 
     % [output_data] =  EPI_WBV9(data); % one output
     % [output_data, parameters] =  EPI_WBV9(data); % two outputs
