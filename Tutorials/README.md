@@ -60,7 +60,7 @@ The following lines of code show how to store the three outputs in our MATLAB wo
 ## 3. Simulation with new parameters
 There are different ways to access the information regarding the default parameters in the EWB model.
 - Accessing the peer-reviewed article on the model: Carchipulla-Morales, D., Corbett, H., Vaughan, D., Gotsch, S., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model to simulate water and energy budgets for epiphytic mats.
-- Using the TEXT file listing the parameters of the mode: ![Parameters.txt](https://github.com/DavidCarMor/EWB/tree/main/Parameters.txt)
+- Using the TEXT file listing the parameters of the mode: [Parameters.txt](https://github.com/DavidCarMor/EWB/tree/main/Parameters.txt)
 - Using the assist for the EPI_WBV9 function on the MATLAB command window: help EPI_WBV9
 
 3.1  First, we will run a couple of simulations changing the initial water level in the epiphyte mat. The following lines show how to change the initial water level using two valid coding syntaxis. 
