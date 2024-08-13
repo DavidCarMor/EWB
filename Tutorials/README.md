@@ -98,6 +98,12 @@ There are different ways to access the information regarding the default paramet
             'Orientation','horizontal','Fontsize',12)
 Despite these simulations being initiated with the same water level, we can observe steeper changes in the water levels of the second curve.
 
+## 4. Exporting data
+It is possible to export the simulation results to a local machine. Nevertheless, it is suggested to turn the timetable object that stores the output data from the model into a table object before exporting the results to a local machine.
+
+    output_table = timetable2table(output_data); % Changing the format of the object
+    writetable(output_table,'./results_test1.csv') % './' saves the file in your current working directory
+
 ### Full script
     %% Ideal data
     n = 2; % Number of days of simulation
@@ -156,3 +162,7 @@ Despite these simulations being initiated with the same water level, we can obse
     hold off
     legend('S_0 = 20 mm \newline LAI = 5', 'S_0 = 20 mm \newline f_e = 0.5', 'Location', 'southoutside', ...
             'Orientation','horizontal','Fontsize',12)
+
+    %% Exporting data
+    output_table = timetable2table(output_data); % Changin object format
+    writetable(output_table,'./results_test1.csv') % './' saves the file in your current working directory
