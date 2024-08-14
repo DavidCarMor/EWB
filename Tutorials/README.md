@@ -36,6 +36,7 @@ The following lines of code show how to store the three outputs in our MATLAB wo
     [output_data, parameters, stomatal_info] =  EPI_WBV9(data); % three outputs
 
 2.2 As you might have noticed, the outputs are on your workspace and we can plot the new data now.
+
     % Plotting dew deposition and evapotranspiration
     figure
     hold on 
