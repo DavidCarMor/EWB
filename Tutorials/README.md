@@ -47,8 +47,6 @@ The following lines of code show how to store the three outputs in our MATLAB wo
     legend('Dew deposition', 'Evapotranspiration', 'Location', 'southoutside', ...
     'Orientation','horizontal','Fontsize',12)
 
-
-
     % Plotting temperature
     figure
     hold on 
