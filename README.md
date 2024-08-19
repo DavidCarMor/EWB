@@ -15,7 +15,7 @@ Similarly, the energy balance of the epiphyte mat is solved for the fractional g
 ![Fig3_EEB](https://github.com/user-attachments/assets/84cdb0be-baa5-4806-bc50-2f2973e0e823)
 
 # Software specifications
-This code was built in MATLAB and shared as a function. The function has been tested from MATLAB V2020a through MATLAB V2023a. The model's parameters can be modified and their information is in [parameters](Parameters.txt). An [user guide](https://github.com/DavidCarMor/EWB/User%20guide) for the model was added to this repository.
+This code was built in MATLAB and shared as a function. The function has been tested from MATLAB V2020a through MATLAB V2023a. The model's parameters can be modified and their information is in [parameters](Parameters.txt). An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model was added to this repository.
 
 Technical support can be provided by the corresponding author Dr. Lauren E. L. Lowman at lowmanle@wfu.edu
 
