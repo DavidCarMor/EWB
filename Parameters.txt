@@ -1,4 +1,4 @@
-The model starts running with default input parameters that are used to compute intermediate parameters and variables for the outputs. 
+The model starts running with default input parameters used to compute intermediate parameters and variables for the outputs. 
 
 Input parameters:
   - alph: Albedo of the canopy. The default value is 0.15,
@@ -9,17 +9,17 @@ Input parameters:
   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
   - b: Texture coefficient of water potential curve. The default value is 7.75,
   - fe: Fractional grid canopy area covered by epiphytes. The default value is 0.3 m2/m2,
-  - c_F: Fraction of fog captured in the canopy. The default value is 0.3 mm/mm,
+  - c_F: Fraction of fog captured in the canopy. The default value is 0.5 mm/mm,
   - c_p: Specific heat capacity of air. The default value is 1010 W s/kg/K,
   - c_pw: Specific heat capacity of water. The default value is 4182 W s/kg/K,
   - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
-  - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.14 mm/mmm,
+  - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.5 mm/mmm,
   - day_l: Day length. The default value is 12 h,
   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
   The default value is 1250 Pa,
   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
-  - gamma_w: Psychrometric constant. The default value is 65.55 Pa/K,
+  - gamma_w: Psychrometric constant. The default value is 66.1 Pa/K,
   - g_a: Aerodynamic conductance of canopy boundary layer. The default value
   is 0.02 m/s,
   - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value
@@ -38,9 +38,9 @@ Input parameters:
   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
-  - m_e: Epiphyte mat biomass in forest canopy. The default value is 53314 kg/ha,
-  - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 37319.8kg/ha,
-  - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331.4 kg/ha,
+  - m_e: Epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
+  - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 28110 kg/ha,
+  - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331 kg/ha,
   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
   The default value is -0.356 m,
@@ -60,7 +60,7 @@ Input parameters:
   - Topt: Optimum air temperature for stomata conductance. The default value
   is 293.15 K,
   - t0: Sunrise time. The default value is 7 am LST, and
-  - wf: Water-biomass weight ratio. The default value is 4.
+  - wf: Water-Biomass weight ratio. Default value is 4.
 
 Output parameters:
   - h: Epiphyte mat depth in m, = (opt.Se_max/1000)/opt.porosity,
