@@ -7,7 +7,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 % Modifications can be applied to work at finer time resolutions or time
 % resolutions smaller than 12 hours. Coarser time resolutions might
 % recquire a modification of the assumptions.
-%
+% 
 % Input variables:
 %   -data: table with variables Date air temperature in Kelvin (Ta_K), 
 %   relative humidity as fraction (RH), rainfall or vertical precipitation 
@@ -21,9 +21,9 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   of the canopy boundary layer is estimated. Otherwise, a fixed aerodynamic
 %   conductance of the canopy boundary layer is defined according to
 %   parameters ga and gb.
-%
+% 
 % Input parameters:
-%   - alph: Albedo of the canopy. The default value is 0.35,
+%   - alph: Albedo of the canopy. The default value is 0.15,
 %   - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable
 %   AP_Pa in table data. The default value is 88000 Pa,
 %   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
@@ -31,17 +31,17 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
 %   - b: Texture coefficient of water potential curve. The default value is 7.75,
 %   - fe: Fractional grid canopy area covered by epiphytes. The default value is 0.3 m2/m2,
-%   - c_F: Fraction of fog captured in the canopy. The default value is 0.3 mm/mm,
+%   - c_F: Fraction of fog captured in the canopy. The default value is 0.5 mm/mm,
 %   - c_p: Specific heat capacity of air. The default value is 1010 W s/kg/K,
 %   - c_pw: Specific heat capacity of water. The default value is 4182 W s/kg/K,
 %   - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
-%   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.14 mm/mmm,
+%   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.5 mm/mmm,
 %   - day_l: Day length. The default value is 12 h,
 %   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
 %   The default value is 1250 Pa,
 %   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
 %   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
-%   - gamma_w: Psychrometric constant. The default value is 65.55 Pa/K,
+%   - gamma_w: Psychrometric constant. The default value is 66.1 Pa/K,
 %   - g_a: Aerodynamic conductance of canopy boundary layer. The default value
 %   is 0.02 m/s,
 %   - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value
@@ -60,14 +60,14 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
 %   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
 %   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
-%   - m_e: Epiphyte mat biomass in forest canopy. The default value is 95673 kg/ha,
-%   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 69434.57 kg/ha,
-%   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 10585.79 kg/ha,
+%   - m_e: Epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
+%   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 28110 kg/ha,
+%   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331 kg/ha,
 %   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
 %   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
 %   The default value is -0.356 m,
 %   - psi_fc: Water potential at epiphyte mat field capacity. The default value
-%   is -132.2946 m,
+%   is -16.4113 m,
 %   - psi_wp: Water potential at epiphyte mat wilting point. The default value
 %   is -1529.6164 m,
 %   - rho: Air density. The default value is 1.2 kg/m3,
@@ -83,7 +83,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   is 293.15 K,
 %   - t0: Sunrise time. The default value is 7 am LST, and
 %   - wf: Water-Biomass weight ratio. Default value is 4.
-%
+% 
 % Output parameters:
 %   - h: Epiphyte mat depth in m, = (opt.Se_max/1000)/opt.porosity,
 %   - LAIe: Epiphyte mat leaf area index in m2/m2,
@@ -98,7 +98,7 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   - theta_fc: Volumetric water content of the epiphyte mat at field
 %   capacity in m3/m3, and
 %   - theta_wp: Volumetric water content of the epiphyte mat at wilting pointin m3/m3
-%
+% 
 % Output variables:
 %   - c_pe: Specific heat capacity of the epiphyte mat in W/s/kg/K,
 %   - clf: Estimation of cloud cover -, 
@@ -128,41 +128,42 @@ function [data,opt,datags]=EPI_WBV9(data,opt)
 %   - theta_e: Epiphyte mat volumectric water content in m3/m3, 
 %   - VPD: Air Vapor Pressure Deficit in Pa, and
 %   - WUht: Host tree water uptake in mm/h.
-%
+% 
 % Notes:
-%
+% 
 %  If you want to run the funcion, make sure you are in the folder with all
 %  the functions required to run the model. Otherwise add the path, e.g.:
-%
+% 
 %           addpath(genpath(folder containing the this code));
-%
+% 
 % winput() is supporting code that generates the recquired variables to run
 % the model. 
-%
+% 
 % An example for running the code is:
 %           data=EPI_WBV9(data=winput(2),LAI=7,ce=0.25);
-%
+% 
 % D. Carchipulla-Morales, H. Corbett, and L.Lowman (February, 2022)
 % Last update: July, 2024
 
 %% Inputs
 arguments % Defaults
     data table % Weather data
-    opt.alph double = 0.35 % Vegetation albedo [W m-2 / W m-2]
+    % opt.alph double = 0.35 % Vegetation albedo [W m-2 / W m-2]
+    opt.alph double = 0.15 % Vegetation albedo [W m-2 / W m-2]
     opt.AP_Pa double = 88000 % [Pa] https://www.worldmeteo.info/es/america-central/costa-rica/monteverde/tiempo-136622/
     opt.b1 double = 0.012*2.02 % Parameter for stomatal sensitivity to incoming solar radiation [m2 W-1]
     opt.b double = 7.75 % Exponent of Soil Mositure in soil-water retention curve (Dingman, pg 338)
     opt.fe double = 0.3 % Fractional grid canopy area covered by epiphytes [m2 m-2]
-    opt.c_F double = 0.3 % Fraction of fog captured in the canopy [mm/mm]
+    opt.c_F double = 0.5 % Fraction of fog captured in the canopy [mm/mm]
     opt.c_p double = 1010 % Specific capacity of the air [W s-1 kg-1 K-1]
     opt.c_pw double = 4182 %Specific capacity of the water [W s-1 kg-1 K-1]
-    opt.c_pd double = 1007.75 % Specific capacity of the epiphyte tank [W s kg-1 K-1]
-    opt.c_RF double = 0.14 % Fraction of rainfall captured in the canopy [mm/mmm]
+    opt.c_pd double = 3433.409 % Specific capacity of the epiphyte tank [W s kg-1 K-1]
+    opt.c_RF double = 0.5 % Fraction of rainfall captured in the canopy [mm/mmm]
     opt.day_l double = 12 % Day length [h]
     opt.Dx double = 1250 % Temperature dependent parameter for stomatal sensitivity to EAVD [Pa]
     opt.epsiln_a double =0.8 % Night air emissivity 
     opt.epsiln_v double = 0.95 % Emissivity of vegetation [W m-2 / W m-2]
-    opt.gamma_w double = 65.55 %Psychrmetric constant [Pa K-1]
+    opt.gamma_w double = 66.1 %Psychrmetric constant [Pa K-1]
     opt.g_a double = 20*(1/1000) % Aerodynamic conductance [m s-1]
     opt.g_b double = 20*(1/1000) % Additional boundary layer conductance [m s-1]
     % opt.gsve_max double = 2.48*(1/1000) % Max. vascular epiphyte water exchange conductance [m s-1]
@@ -178,12 +179,16 @@ arguments % Defaults
     opt.latitude double = 10.3 % Latitude of epiphyte mat [°]
     opt.LAI double = 7.7 % Leaf area index of the forest [m2 m-2]
     opt.lambda_w double = 2.50e6 % Latent heat of vaporisation of water [J kg-1]
-    opt.m_e double = 95673 % Epiphyte mat biomass in forest [kg ha-1]
-    opt.VEDB double = 69434.57 % Vascular epiphyte dry biomass [kg ha-1]
-    opt.NVEDB double = 10585.79 % Non-vascular epiphyte dry biomass [kg ha-1]
+    % opt.m_e double = 95673 % Epiphyte mat biomass in forest [kg ha-1]
+    opt.m_e double = 49095 % Epiphyte mat biomass in forest [kg ha-1]
+    % opt.VEDB double = 69434.57 % Vascular epiphyte dry biomass [kg ha-1]
+    % opt.NVEDB double = 10585.79 % Non-vascular epiphyte dry biomass [kg ha-1]
+    opt.VEDB double = 28110 % Vascular epiphyte dry biomass [kg ha-1]
+    opt.NVEDB double = 5331 % Non-vascular epiphyte dry biomass [kg ha-1]
     opt.porosity double = 0.6 % Epiphyte mat porosity [m3 m-3]
     opt.psi_ae double = -0.356 % Air-Entry water potential of epiphyte mat [m]
-    opt.psi_fc double = -132.2946 % Water potential at field capacity [m] (Water is not moving anymore)
+    % opt.psi_fc double = -132.2946 % Water potential at field capacity [m] (Water is not moving anymore)
+    opt.psi_fc double = -16.4113 % Water potential at field capacity [m] (Water is not moving anymore)
     opt.psi_wp double = -1529.6164 % Wilting point of plants [m]
     opt.rho double = 1.2 % Air density [kg m-3]
     opt.rho_s double = 1300 % Soil organic matter density [kg m-3]
