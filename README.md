@@ -1,26 +1,28 @@
-# Epiphyte Mat Energy and Water Mass Balance Model
-The current repository stores the code for epiphyte mats' energy and water mass balance model. We consider epiphytes in the host tree as water storage inside the canopy that is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. This uncalibrated model depicts the interactions of epiphyte mats in the hydrology of Tropical Montane Cloud Forest (TMCF) canopies. 
+# Epiphyte Water Balance (EWB) Model
+This repository stores the code for Epiphyte Water Balance (EWB) model. Epiphytes are vascular and nonvascular plants that live on trees and have no connection to the forest floor. Epiphyte mats are a composite of living epiphytes and their detritus, including decomposed organic matter and inorganic nutrients, situated within host tree canopies (Nadkarni, 1984). The model conceptualizes the epiphyte mats as a water store inside the host tree canopy. The EWB model is uncalibrated and allows users to explore the water and energy budgets of epiphyte mats within Tropical Montane Cloud Forest (TMCF) canopies. 
+
 ![Fig1_EWSF](https://github.com/user-attachments/assets/917ad192-96f3-42bf-a8fe-7df3b973b1ec)
+Figure 1. (a) The epiphyte water balance (EWB) model conceptualizes the epiphyte mats in TMCF canopies as a water store suspended in the canopy which includes vascular and non-vascular vegetation, mosses, and canopy soils. (b) Schematic diagram of water inputs, qin, and outputs, qout, between the epiphyte mat and the atmosphere and output from the epiphyte mat to the host tree, qht.
 
 # Journal article
-Carchipulla-Morales, D., Corbett, H., Vaughan, D., Gotsch, S., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model to simulate water and energy budgets for epiphytic mats.
+Carchipulla-Morales, D., Corbett, H., Vaughan, D., Gotsch, S., Dawson, T., Nadkarni, N., and Lowman, L., 2024. A novel model uncovers the importance of dew deposition for canopy epiphytes in a tropical montane cloud forest.
 
 # Methodology
-The water mass balance of the epiphyte mat is solved for a water bucket in the canopy, i.e., the epiphyte mat. In the TMCF canopies, the epiphyte mat is filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. Rainfall and fog interception are approximated using a fraction of bulk water input times the fractional grid canopy area covered by epiphytes. Evapotranspiration and its reciprocal, Dew Deposition, are estimated using the Penman-Monteith equation. Finally, the host tree water uptake is a fraction of the host tree transpiration.
+The EWB model consists of a water mass balance and an energy balance to solve for water storage within the epiphyte mat and its temperature at a given point in time. In the water mass balance, the epiphyte mat is treated as a water bucket in the canopy that can be filled via rainfall and fog, and depleted via evapotranspiration, and host tree water uptake. For the energy balance, change in epiphate mat temperature is determined based on incoming net radiation, sensible and latent heat fluxes, and the epiphyte mat mass and heat capacity. Consult the accompanying journal article for further details on the equations underlying the EWB model.
 
 ![Fig2_EMB](https://github.com/user-attachments/assets/495d0695-ed9e-46da-b05c-8755802f6932)
-
-Similarly, the energy balance of the epiphyte mat is solved for the fractional grid canopy area covered by epiphytes and its interaction with the rest of the canopy. The net radiation accounts for the effective shortwave radiation that reaches the epiphyte mat, long wave radiation from the air surrounding the epiphyte mat, and the longwave radiation that the epiphyte mat emits. The sensible heat considers the temperature difference between the epiphyte mat and air. Finally, latent heat reconciles the energy required to evaporate or condense water in the epiphyte mat. 
+Figure 2. Input and output terms for the water mass balance of the EWB model in the canopy. Water enters the epiphyte mat via rainfall (R) and fog (F) interception and dew deposition (DDe). Water leaves the epiphyte mat through evapotranspiration (ETe) and water uptake by the host tree roots (WU).
 
 ![Fig3_EEB](https://github.com/user-attachments/assets/84cdb0be-baa5-4806-bc50-2f2973e0e823)
+Figure 3. Input and output terms of the energy balance for the EWB model. The epiphyte mat warms by absorbing shortwave radiation (SW) from the above canopy incoming solar radiation (Φ0), long wave radiation emitted from the atmosphere (LWa) and soil (LWs), latent heat (L) when the water vapor concentration is greater in the air than in the epiphyte mat, and sensible heat (H) when the air is warmer than the epiphyte mat. The epiphyte mat cools when energy leaves through the reflection of shortwave radiation (αSW), long wave radiation emitted from the epiphyte mat (LWe), and latent and sensible heat when the epiphyte mat temperature is warmer than the air.
 
 # Software specifications
-This code was built in MATLAB and shared as a function. The function has been tested from MATLAB V2020a through MATLAB V2023a. The model's parameters can be modified and their information is in [parameters](Parameters.txt). An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model was added to this repository.
+This code is available as a MATLAB .m file and provided as a function. This code replicates the ideal simulation from the Carchipulla-Morales et al. (in prep) manuscript. The function has been tested in the MATLAB V2020a through MATLAB V2023a software version releases. Users can modify the EWB model parameters by editing the [parameters](Parameters.txt) file. An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model is available in this repository.
 
-Technical support can be provided by the corresponding author Dr. Lauren E. L. Lowman at lowmanle@wfu.edu
+Technical support can be provided by the first author David Carchipulla-Morales (carcpd21@wfu.edu).
 
 # Input Variables
-The input for the function is a MATLAB table object with the following variables in time steps of one hour. 
+The EWB model input variables are provided as a MATLAB table object with the following variables in time steps of one hour. 
 
 | Variable | Description |
 | ------------- | ------------- |
@@ -30,10 +32,10 @@ The input for the function is a MATLAB table object with the following variables
 | F_mm | Fog in milimeters |
 | SW_Wpms | Shortwave radiation in Watts per meter squared | 
 
-If rainfall or fog were not measured, the data corresponds to clear-sky conditions. The user is encouraged to set all elements in RF_mm and F_mm equal to zero.
+If rainfall or fog were not measured, the input data corresponds to clear-sky conditions. In this case, the user is encouraged to set all elements in RF_mm and F_mm equal to zero.
 
 # Optional Input Variables
-A couple of optional variables can be added to the input table for the model. They will be used to improve the estimations of the conductance of the aerodynamic boundary layer and the host tree transpiration. If these values are absent, the model creates a constant vector to add as a variable in the input table according to the parameters listed on [parameters](Parameters.txt).
+Two optional variables can be added to the input table for the EWB model. These variables may improve the estimation of the aerodynamic boundary layer conductane used in simulating evapotranspiration and the host tree transpiration. If these values are not included in the input variable table, the EWB model treats them as constant parameters and creates a constant vector in the input table according to the parameters values listed on [parameters](Parameters.txt).
 
 | Variable | Description |
 | ------------- | ------------- |
@@ -41,7 +43,7 @@ A couple of optional variables can be added to the input table for the model. Th
 | WS_mps | Windspeed in meters per second |
 
 # Output Variables
-The function returns three objects: an updated version of the input table, a cell array of the parameters in the model, and a table with information on the stomatal conductance of the vascular component of the epiphyte mat. Go to [parameters](Parameters.txt) for details of the parameters in the model. Information on the Jarvis function used to describe the stomatal conductance of the vascular component of the epiphyte mat can be found in Lowman, Lauren EL, and Luis Dil Godoy. "Simulating stomatal response to cloud immersion for montane cloud forests in the Southern Appalachians." Agricultural and Forest Meteorology 295 (2020): 108165.
+The function returns three objects: an updated version of the input table, a cell array of the parameters in the model, and a table with information on the stomatal conductance of the vascular component of the epiphyte mat. Consult the [parameters](Parameters.txt) file for futher details on the parameters in the EWB model. Information on the Jarvis function used to describe the stomatal conductance of the vascular component of the epiphyte mat can be found in Lowman and Dil Godoy (2020).
 
 | Variable | Description |
 | ------------- | ------------- |
@@ -73,3 +75,8 @@ The function returns three objects: an updated version of the input table, a cel
 | theta_e | Epiphyte mat volumetric water content in m3/m3 | 
 | VPD | Air Vapor Pressure Deficit in Pa |
 | WUht | Host tree water uptake in mm/h |
+
+# References
+Lowman, L.E. and Godoy, L.D., 2020. Simulating stomatal response to cloud immersion for montane cloud forests in the Southern Appalachians. Agricultural and Forest Meteorology, 295, p.108165.
+
+Nadkarni, N.M., 1984. Epiphyte biomass and nutrient capital of a neotropical elfin forest. Biotropica 16, 249–256. doi:132.174.248.95.
