@@ -1,15 +1,15 @@
 ## Background
-Details of the basis of the model and information on its peer-reviewed publication can be found on this repository's [home page](https://github.com/DavidCarMor/EWB). 
+Details of the basis of the EWB model and information on its accompanying manuscript can be found on this repository's [home page](https://github.com/DavidCarMor/EWB). 
 
-The code for this model was built in [MATLAB](https://www.mathworks.com/products/matlab.html), whose license usually can be accessed through your academic institution. The EWB code can be downloaded from this repository's [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder.
+The code for this model was developed in [MATLAB](https://www.mathworks.com/products/matlab.html), the license for which is typically available through academic institutions. The EWB model code can be downloaded from this repository's [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder.
 
-The forcing variables of the model are air temperature in Kelvin degrees, relative humidity in unit fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. The EWB model works with a one-hour resolution, and its forcing data shall be included in the same time resolution. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second can be added as forcing data for the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat, and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
+The forcing variables of the model are air temperature in degrees Kelvin, relative humidity as a fraction, rainfall in millimeters, fog in millimeters, and shortwave radiation in Watts per meter squared. The EWB model uses an one-hour temporal resolution, and its forcing data is included in the same temporal resolution. Additionally, atmospheric pressure in pascals and/or wind speed in meters per second are optional forcing data that can be used the model. Atmospheric pressure affects the host-tree water uptake from the epiphyte mat, and wind speed is used to replace the fixed boundary layer assumed in the model for a dynamic boundary layer.
 
-## 1. Preallocating variables
-1.1. Download the EPI_WBV9 and winput functions from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder, open Matlab, and set your working directory to the same where those functions were stored.<br />
+## 1. Preallocate variables
+1.1. Download the EPI_WBV9 and winput functions from the [Scripts](https://github.com/DavidCarMor/EWB/tree/main/Scripts) folder, open Matlab, and set your working directory to the same directory where the functions were stored.<br />
 ![step1](https://github.com/user-attachments/assets/f0663e70-33d0-4d1d-8a4f-f8b8fabb719d)
 
-1.2. We will create a MATLAB script to work with the model for this tutorial.<br />
+1.2. Create a new MATLAB script file to work with the EWB model for this tutorial.<br />
 ![Step2](https://github.com/user-attachments/assets/29048e14-0401-4de9-b25e-21993e9f0afa)
 
 1.3. As mentioned in the background, the model requires air temperature, relative humidity, rainfall and fog rates, and shortwave radiation as forcing variables. We will create ideal forcing data using the function [winput](https://github.com/DavidCarMor/EWB/tree/main/Scripts/winput.m). Nevertheless, the user is encouraged to test the model using real forcing data as a MATLAB table with the following variables:<br />
