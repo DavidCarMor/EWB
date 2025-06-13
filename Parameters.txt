@@ -55,7 +55,7 @@ Input parameters:
   - So: Initial water content. The default value is NaN mm,
   - sigma: Stefan - Boltzmann constat. Default value is 5.67e-8 W/m2/K4,
   - SWclr: Clear Sky Shortwave radiation. The default value is 1100 W/m2,
-  - Te_Ta: Initial guess for the difference between Te and Ta. The default value is -0.5 K,
+  - Te0: Initial epiphyte mat temperature. The default value is 293.15 K,
   - tau: Fraction of transpiration of the host tree. The default value is 0.15,
   - Topt: Optimum air temperature for stomata conductance. The default value
   is 293.15 K,
