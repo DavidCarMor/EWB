@@ -17,9 +17,9 @@ Figure 2. Input and output terms for the water mass balance of the EWB model in 
 Figure 3. Input and output terms of the energy balance for the EWB model. The epiphyte mat warms by absorbing shortwave radiation (SW) from the above canopy incoming solar radiation (Φ0), long wave radiation emitted from the atmosphere (LWa) and soil (LWs), latent heat (L) when the water vapor concentration is greater in the air than in the epiphyte mat, and sensible heat (H) when the air is warmer than the epiphyte mat. The epiphyte mat cools when energy leaves through the reflection of shortwave radiation (αSW), long wave radiation emitted from the epiphyte mat (LWe), and latent and sensible heat when the epiphyte mat temperature is warmer than the air.
 
 # Software specifications
-This code is available as a MATLAB .m file and provided as a function. This code replicates the ideal simulation from the Carchipulla-Morales et al. (in prep) manuscript. The function has been tested in the MATLAB V2020a through MATLAB V2023a software version releases. Users can modify the EWB model parameters by editing the [parameters](Parameters.txt) file. An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model is available in this repository.
+This code is available as a MATLAB .m file and provided as a function. This code replicates the ideal simulation presented in the Carchipulla-Morales et al. (in review) manuscript. The function has been tested using MATLAB software versions from 2020a to 2023a. Users can modify the EWB model parameters by editing the arguments in the EWB MATLAB function version 1.0. file. An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model is available in this repository.
 
-Technical support can be provided by the first author David Carchipulla-Morales (carcpd21@wfu.edu).
+Technical support can be provided by the first author, David Carchipulla-Morales (carcpd21@wfu.edu).
 
 # Input Variables
 The EWB model input variables are provided as a MATLAB table object with the following variables in time steps of one hour. 
