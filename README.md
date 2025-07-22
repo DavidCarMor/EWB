@@ -19,6 +19,8 @@ Figure 3. Input and output terms of the energy balance for the EWB model. The ep
 # Software specifications
 This code is available as a MATLAB .m file and provided as a function. This code replicates the ideal simulation presented in the Carchipulla-Morales et al. (in review) manuscript. The function has been tested using MATLAB software versions from 2020a to 2023a. Users can modify the EWB model parameters by editing the arguments in the EWB MATLAB function version 1.0. file. Parameters are presented and described in the [parameters](Parameters.txt) file of this repository. An [user guide](https://github.com/DavidCarMor/EWB/User_guide) for the model is available in this repository.
 
+If you are a university student, faculty member, or work at a research institute, you may have full access to MATLAB Online and even the desktop version through your organization's license. Additionally, a basic version of MATLAB Online provides 20 hours per month of free use and access to 10 commonly used products. 
+
 Technical support can be provided by the first author, David Carchipulla-Morales (carcpd21@wfu.edu).
 
 # Input Variables
