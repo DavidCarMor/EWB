@@ -34,7 +34,7 @@ The EWB model input variables are provided as a MATLAB table object with the fol
 | RH | Relative humidity |
 | RF_mm | Rainfall in millimeters |
 | F_mm | Fog in milimeters |
-| SW_Wpms | Shortwave radiation in Watts per meter squared | 
+| SW_Wpms | Shortwave radiation in Watts per square meter | 
 
 If rainfall or fog were not measured, the input data corresponds to clear-sky conditions. In this case, the user is encouraged to set all elements in RF_mm and F_mm equal to zero.
 
