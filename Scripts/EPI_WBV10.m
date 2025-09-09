@@ -24,8 +24,7 @@ function [data,opt,datags]=EPI_WBV10(data,opt)
 % 
 % Input parameters:
 %   - alph: Albedo of the canopy. The default value is 0.15,
-%   - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable
-%   AP_Pa in table data. The default value is 88000 Pa,
+%   - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable AP_Pa in table data. The default value is 88000 Pa,
 %   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
 %   The default value is 0.012 m2*s/umol with the following conversion factor
 %   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
@@ -37,50 +36,41 @@ function [data,opt,datags]=EPI_WBV10(data,opt)
 %   - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
 %   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.5 mm/mmm,
 %   - day_l: Day length. The default value is 12 h,
-%   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
-%   The default value is 1250 Pa,
+%   - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD. The default value is 1250 Pa,
 %   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
 %   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
 %   - gamma_w: Psychrometric constant. The default value is 66.1 Pa/K,
-%   - g_a: Aerodynamic conductance of canopy boundary layer. The default value
-%   is 0.02 m/s,
-%   - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value
-%   is 0.02 m/s,
-%   - gsve_max: Max. vascular epiphyte stomatal conductance. The default value
-%   is 0.000000482654 m/s,
+%   - g_a: Aerodynamic conductance of canopy boundary layer. The default value is 0.02 m/s,
+%   - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value is 0.02 m/s,
+%   - gsve_max: Max. vascular epiphyte stomatal conductance. The default value is 0.000000482654 m/s,
 %   - gnve: Non-vascular epiphyte water conductance. The default value is 0.01 m/s,
 %   - gsht_max: Max. host tree stomatal conductance. The default value is 0.0124 m/s,
 %   - h_c: Canopy height. The default value is 30 m,
 %   - h_f1: Zero displacement factor. The default value is 0.7 m/m,
 %   - h_f2: Heat and vapor - momentum transfer ratio 0.2,
 %   - k: von Karman's constant. The default value is 0.41,
-%   - k2: Parameter for stomatal sensitivity temperature stress. The default 
-%   value is 0.0016 1/K2,
+%   - k2: Parameter for stomatal sensitivity to temperature stress. The default value is 0.0016 1/K2,
 %   - k_b: Beer's law extinction coefficient. The default value is 0.5,
 %   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
 %   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
 %   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
-%   - m_e: Dry epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
+%   - m_d: Dry epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
 %   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 28110 kg/ha,
 %   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331 kg/ha,
 %   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
-%   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
-%   The default value is -0.356 m,
-%   - psi_fc: Water potential at epiphyte mat field capacity. The default value
-%   is -16.4113 m,
-%   - psi_wp: Water potential at epiphyte mat wilting point. The default value
-%   is -1529.6164 m,
+%   - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil). The default value is -0.356 m,
+%   - psi_fc: Water potential at epiphyte mat field capacity. The default value is -16.4113 m,
+%   - psi_wp: Water potential at epiphyte mat wilting point. The default value is -1529.6164 m,
 %   - rho: Air density. The default value is 1.2 kg/m3,
 %   - rho_s: Soil organic matter density. The default value is 1300 kg/m3,
 %   - rho_w: Density of water. The default value is 998 kg/m3,
 %   - s: Pressure-temperature curve slope. The default value is 189 Pa/K,
 %   - So: Initial water content. The default value is NaN mm,
-%   - sigma: Stefan - Boltzmann constat. Default value is 5.67e-8 W/m2/K4,
+%   - sigma: Stefan - Boltzmann constant. Default value is 5.67e-8 W/m2/K4,
 %   - SWclr: Clear Sky Shortwave radiation. The default value is 1100 W/m2,
 %   - Te_Ta: Initial guess for the difference between Te and Ta. The default value is -0.5 K,
 %   - tau: Fraction of transpiration of the host tree. The default value is 0.15,
-%   - Topt: Optimum air temperature for stomata conductance. The default value
-%   is 293.15 K,
+%   - Topt: Optimum air temperature for stomata conductance. The default value is 293.15 K,
 %   - t0: Sunrise time. The default value is 7 am LST, and
 %   - wf: Water-Biomass weight ratio. Default value is 4.
 % 
@@ -92,12 +82,10 @@ function [data,opt,datags]=EPI_WBV10(data,opt)
 %   - psi_1: Water potential when stomata are completely open in m
 %   - rho_s: Epiphyte mat density in kg/m3,
 %   - Se_max: Maximum water level of epiphyte mat in mm,
-%   - SWclr: if the weather data has a short wave radiation larger than the
-%   default SWclr, the code defines the max shortwave radiation as the new
+%   - SWclr: if the weather data has a shortwave radiation larger than the default SWclr, the code defines the max shortwave radiation as the new
 %   Clear Sky Shortwave radiation in W/m2,
-%   - theta_fc: Volumetric water content of the epiphyte mat at field
-%   capacity in m3/m3, and
-%   - theta_wp: Volumetric water content of the epiphyte mat at wilting pointin m3/m3
+%   - theta_fc: Volumetric water content of the epiphyte mat at field capacity in m3/m3, and
+%   - theta_wp: Volumetric water content of the epiphyte mat at wilting point in m3/m3
 % 
 % Output variables:
 %   - c_pe: Specific heat capacity of the epiphyte mat in W/s/kg/K,
@@ -122,7 +110,7 @@ function [data,opt,datags]=EPI_WBV10(data,opt)
 %   - Se: Epiphyte mat water content in mm/h,
 %   - SF: Stemflow in mm/h,
 %   - sm: Epiphyte mat moisture in kg/kg,
-%   - Te_C: Epiphyte mat temperature in C,
+%   - Te_C: Epiphyte mat temperature in °C,
 %   - Te_K: Epiphyte mat temperature in K,
 %   - TF: Throughfall in mm/h,
 %   - theta_e: Epiphyte mat volumectric water content in m3/m3, 
@@ -179,7 +167,7 @@ arguments % Defaults
     opt.latitude double = 10.3 % Latitude of epiphyte mat [°]
     opt.LAI double = 7.7 % Leaf area index of the forest [m2 m-2]
     opt.lambda_w double = 2.50e6 % Latent heat of vaporisation of water [J kg-1]
-    opt.m_e double = 49095 % Dry epiphyte mat biomass in forest [kg ha-1]
+    opt.m_d double = 49095 % Dry epiphyte mat biomass in forest [kg ha-1]
     % opt.VEDB double = 69434.57 % Vascular epiphyte dry biomass [kg ha-1]
     % opt.NVEDB double = 10585.79 % Non-vascular epiphyte dry biomass [kg ha-1]
     opt.VEDB double = 28110 % Vascular epiphyte dry biomass [kg ha-1]
@@ -243,15 +231,13 @@ clear Ta_C
 % Epiphyte Leaf Area Index [m2 m-2]
 opt.LAIe = opt.LAI*opt.fe;
 % Maximum water level of epiphyte mat [mm]
-opt.Se_max = opt.m_e*opt.wf/(10*opt.rho_w);
+opt.Se_max = opt.m_d*opt.wf/(10*opt.rho_w);
 % Epiphyte mat depth [m]
 opt.h = (opt.Se_max/1000)/opt.porosity;
 % Water potential when stomata are completely open [m]
 opt.psi_1 = opt.psi_fc;
 % Water potential when stomata are completely closed [m]
 opt.psi_0 = opt.psi_wp;
-% Epiphyte mat density [kg/m3] (For next version)
-%  opt.rho_s = opt.m_e/10000/opt.h;
 % Making sure SWclr is larger than max radiation
 opt.SWclr = max(max(data.SW_Wpms),opt.SWclr);
 % Volumetric water content of the epiphyte mat at field capacity [m3/m3]
@@ -361,7 +347,7 @@ for i = 1:size(data,1)
         (opt.gnve*(opt.NVEDB/(opt.VEDB+opt.NVEDB)));
 
     % Dew deposition or evapotranspiration [mm h-1]
-    data.L(i) = ET_DD2(data.VPD(i),data.phi_net(i),data.g_ba(i),data.g_e(i),opt.lambda_w,...
+    data.L(i) = ET_DD(data.VPD(i),data.phi_net(i),data.g_ba(i),data.g_e(i),opt.lambda_w,...
         opt.gamma_w,opt.rho,opt.rho_w,opt.s,opt.c_p,opt.LAIe);
 
     if data.L(i) > 0 % data.es_epi(i) > data.e_a(i)
@@ -384,12 +370,12 @@ for i = 1:size(data,1)
     data.H(i)=(data.Ta_K(i)-data.Te_K(i))*opt.c_p*opt.rho*gah;
 
     % Heat capacity of the composite [W s/kg/K]
-    data.c_pe(i)=cpe(data.Se(i),opt.c_pw,opt.c_pd,opt.rho_w,opt.m_e);
+    data.c_pe(i)=cpe(data.Se(i),opt.c_pw,opt.c_pd,opt.rho_w,opt.m_d);
 
     % Energy Balance (Epiphyte temperature [K and °C])
     if i < size(data,1)
-        data.Te_K(i+1) = data.Te_K(i) + ( (3600/m_cp(data.Se(i),opt.c_pw,opt.c_pd,...
-            opt.rho_w,opt.m_e)) * (data.phi_net(i)+data.L(i)+data.H(i)) ); 
+        data.Te_K(i+1) = data.Te_K(i) + (3600 * (data.phi_net(i)+data.L(i)+data.H(i))/ ...
+            m_cp(data.Se(i),opt.c_pw,opt.c_pd,opt.rho_w,opt.m_d) ); 
         data.Te_C(i+1) = data.Te_K(i+1)-273.15; 
 
     end
@@ -502,32 +488,30 @@ function cos_out = cos_zenith(data,latitude,t0_param,day_l)
     % https://solarsena.com/solar-hour-angle-calculator-formula/
     % https://solarsena.com/solar-declination-angle-calculator/
 end
+
 %% Heat capacity update
-function ct = cpe(Se,c_pw,c_ps,RHOw,m_e)
+function ct = cpe(Se,c_pw,c_pd,RHOw,m_d)
 % Function to compute the mass of soil and water in EWT
 % Inputs
 %     Se = Water level in EWT [mm h-1]
 % Parameters
 %     c_pw % Specific capacity of the water [W s kg-1 K-1]
-%      % https://www.engineeringtoolbox.com/specific-heat-capacity-d_391.html
-%     c_ps % Specific capacity of the dry epiphyte mat [W s kg-1 K-1]
+%     c_pd % Specific capacity of the dry epiphyte mat [W s kg-1 K-1]
 %     RHOw % Water density [kg m-3]
-%     % https://stormwater.pca.state.mn.us/index.php?title=Soil_physical_properties_and_processes
-%     m_e % Epiphyte biomass [kg ha-1] 
+%     m_d % Epiphyte dry biomass [kg ha-1] 
 
-m_e = m_e/10000;
+m_d = m_d/10000; % Epiphyte dry biomass [kg m-2] 
 % Calculations
 m_Se = (Se/1000)*RHOw; % Mass of water per surface [kg m-2]66.076
-fs = m_e/(m_Se+m_e); % Influence of epiphyte mat in heat capacity
-fw = m_Se/(m_Se+m_e); % Influence of water in heat capacity
-ct = ((fw*c_pw)+(fs*c_ps)); % Mass times Heat capacity
+fs = m_d/(m_Se+m_d); % Influence of epiphyte mat in heat capacity
+fw = m_Se/(m_Se+m_d); % Influence of water in heat capacity
+ct = ((fw*c_pw)+(fs*c_pd)); % Mass times Heat capacity
 
 end
 
 %% Saturated vapor pressure
 function es = esat(temp)
-% Function to compute saturated vapor pressure
-% to either air or leaf
+% Function to compute saturated vapor pressure in either air or leaf
 %
 %     input = temperature of either air or leaf [K]
 %     output = saturation vapor pressure for temperature [Pa]
@@ -537,13 +521,10 @@ function es = esat(temp)
 % Agricultural and Forest Meteorology, 295, 108165.
 
 es = 611.71*exp((2.501/0.000461)*((1/273.15)-(1./(temp))));
-
-%es = 610.78*exp((17.27*temp)/(temp + 243.04)); % it uses Celsius and result is in Pa
-
 end
 
 %% Evapotranspiration Penmann-Monteith
-function r = ET_DD2(VPD, PHI,gba,gs,LAMBDAw,GAMMAw,RHO,RHOw,s,cp,LAIe)
+function r = ET_DD(VPD, PHI,gba,gs,LAMBDAw,GAMMAw,RHO,RHOw,s,cp,LAIe)
 % Function to compute ET or dew deposition. The result is a function of 
 % the input difference between specific humidities. Use D_epi for ET and
 % D_a for DD.
@@ -564,9 +545,6 @@ function r = ET_DD2(VPD, PHI,gba,gs,LAMBDAw,GAMMAw,RHO,RHOw,s,cp,LAIe)
 %     
 % Output
 %     ET_DD = Evapotranspiration or dew deposition [mm h-1].
-%
-% Jones, H. G. (2013). Plants and microclimate: a quantitative approach to 
-% environmental plant physiology. Cambridge university press.
 
 % numerator and denominator
 num1 = (s*PHI)+(RHO*cp*gba*VPD);
@@ -594,22 +572,22 @@ ga = (U.* k.^2) ./ (log((hc-d)./z0).*log((hc-d)./z0q));
 end
 
 %% Heat capacity times mass (water + epiphyte mat)
-function ct = m_cp(Se,c_pw,c_ps,RHOw,m_e)
+function ct = m_cp(Se,c_pw,c_pd,RHOw,m_d)
 % Function to compute the mass of soil and water in EWT
 % Inputs    
 %     Se = Water level in EWT [mm]
 % Parameters
 %     c_pw % Specific capacity of the water [W s kg-1 K-1]
-%     c_ps % Specific capacity of the dry epiphyte mat [W s kg-1 K-1]  
+%     c_pd % Specific capacity of the dry epiphyte mat [W s kg-1 K-1]  
 %     RHOw % Water density [kg m-3] 
-%     m_e% Epiphyte biomass [kg m-2] 0.7854
+%     m_d% Epiphyte dry biomass [kg ha-1]
 
-m_e=m_e/10000;
+m_d=m_d/10000; % Epiphyte dry biomass [kg m-2]
 % Calculations
 m_Se = (Se/1000)*RHOw; % Mass of water per surface [kg m-2]
-fs = m_e/(m_Se+m_e); % Influence of epiphyte mat in heat capacity
-fw = m_Se/(m_Se+m_e); % Influence of water in heat capacity
-ct = (m_Se+m_e)*((fw*c_pw)+(fs*c_ps)); % Mass per square meter times Heat capacity [W s m-2 K-1]  
+fs = m_d/(m_Se+m_d); % Influence of epiphyte mat in heat capacity
+fw = m_Se/(m_Se+m_d); % Influence of water in heat capacity
+ct = (m_Se+m_d)*((fw*c_pw)+(fs*c_pd)); % Mass per square meter times Heat capacity [W s m-2 K-1]  
     
 end
 
