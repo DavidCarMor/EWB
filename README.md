@@ -1,4 +1,6 @@
 # Epiphyte Water Balance (EWB) Model
+[![DOI](https://zenodo.org/badge/533834292.svg)](https://doi.org/10.5281/zenodo.17086904)
+
 This repository stores the code for Epiphyte Water Balance (EWB) model. Epiphytes are vascular and nonvascular plants that live on trees and have no connection to the forest floor. Epiphyte mats are a composite of living epiphytes and their detritus, including decomposed organic matter and inorganic nutrients, situated within host tree canopies (Nadkarni, 1984). The model conceptualizes the epiphyte mats as a water store inside the host tree canopy. The EWB model is uncalibrated and allows users to explore the water and energy budgets of epiphyte mats within Tropical Montane Cloud Forest (TMCF) canopies. 
 
 ![Fig1_EWSF](https://github.com/user-attachments/assets/cd95428a-04f8-4d36-82ca-59663dbecf81)
