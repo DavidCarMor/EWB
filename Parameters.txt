@@ -1,9 +1,8 @@
-The model starts running with default input parameters used to compute intermediate parameters and variables for the outputs. 
+The model begins running with default input parameters, which are used to compute intermediate parameters and variables for the outputs. 
 
 Input parameters:
   - alph: Albedo of the canopy. The default value is 0.15,
-  - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable
-  AP_Pa in table data. The default value is 88000 Pa,
+  - AP_Pa: fixed atmospheric pressure in Pascals used to create the variable AP_Pa in table data. The default value is 88000 Pa,
   - b1: Parameter for stomatal sensitivity to incoming solar radiation.
   The default value is 0.012 m2*s/umol with the following conversion factor
   1 W/m2 = 2.02 umol/m2/s (dos Reis, Mariana Gonçalves, and Aristides Ribeiro, 2020),
@@ -15,50 +14,41 @@ Input parameters:
   - c_pe: Specific heat capacity of dry epiphyte mat. The default value is 1007.75 W s/kg/K,
   - c_RF: Fraction of rainfall captured in the canopy. The default value is 0.5 mm/mmm,
   - day_l: Day length. The default value is 12 h,
-  - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD.
-  The default value is 1250 Pa,
+  - Dx: Temperature-dependent parameter for stomatal sensitivity to EAVD. The default value is 1250 Pa,
   - epsiln_a: Night air emissivity. The default value is 0.8 W/m2/W/m2,
   - epsiln_v: Emissivity of vegetation. The default value is 0.95 W/m2/W/m2,
   - gamma_w: Psychrometric constant. The default value is 66.1 Pa/K,
-  - g_a: Aerodynamic conductance of canopy boundary layer. The default value
-  is 0.02 m/s,
-  - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value
-  is 0.02 m/s,
-  - gsve_max: Max. vascular epiphyte stomatal conductance. The default value
-  is 0.000000482654 m/s,
+  - g_a: Aerodynamic conductance of canopy boundary layer. The default value is 0.02 m/s,
+  - g_b: Additional aerodynamic conductance of canopy boundary layer. The default value is 0.02 m/s,
+  - gsve_max: Max. vascular epiphyte stomatal conductance. The default value is 0.000000482654 m/s,
   - gnve: Non-vascular epiphyte water conductance. The default value is 0.01 m/s,
   - gsht_max: Max. host tree stomatal conductance. The default value is 0.0124 m/s,
   - h_c: Canopy height. The default value is 30 m,
   - h_f1: Zero displacement factor. The default value is 0.7 m/m,
   - h_f2: Heat and vapor - momentum transfer ratio 0.2,
   - k: von Karman's constant. The default value is 0.41,
-  - k2: Parameter for stomatal sensitivity temperature stress. The default 
-  value is 0.0016 1/K2,
+  - k2: Parameter for stomatal sensitivity to temperature stress. The default value is 0.0016 1/K2,
   - k_b: Beer's law extinction coefficient. The default value is 0.5,
   - latitude: Geographical latitude of the epiphyte mat. The default value is 10.3°,
   - LAI: Leaf area index of the forest. The default value is 7.7 m2/m2,
   - lambda_w: Latent heat of vaporisation of water. The default value is 2.50e6 J/kg,
-  - m_e: Epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
+  - m_d: Dry epiphyte mat biomass in forest canopy. The default value is 49095 kg/ha,
   - VEDB: Vascular epiphyte biomass in forest canopy. The default value is 28110 kg/ha,
   - NVEDB: Non-vascular epiphyte biomass in forest canopy. The default value is 5331 kg/ha,
   - porosity: Epiphyte mat porosity. Default value is 0.6 m3/m3,
-  - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil).
-  The default value is -0.356 m,
-  - psi_fc: Water potential at epiphyte mat field capacity. The default value
-  is -16.4113 m,
-  - psi_wp: Water potential at epiphyte mat wilting point. The default value
-  is -1529.6164 m,
+  - psi_ae: Air-Entry water potential of epiphyte mat (silty clay soil). The default value is -0.356 m,
+  - psi_fc: Water potential at epiphyte mat field capacity. The default value is -16.4113 m,
+  - psi_wp: Water potential at epiphyte mat wilting point. The default value is -1529.6164 m,
   - rho: Air density. The default value is 1.2 kg/m3,
   - rho_s: Soil organic matter density. The default value is 1300 kg/m3,
   - rho_w: Density of water. The default value is 998 kg/m3,
   - s: Pressure-temperature curve slope. The default value is 189 Pa/K,
   - So: Initial water content. The default value is NaN mm,
-  - sigma: Stefan - Boltzmann constat. Default value is 5.67e-8 W/m2/K4,
+  - sigma: Stefan - Boltzmann constant. Default value is 5.67e-8 W/m2/K4,
   - SWclr: Clear Sky Shortwave radiation. The default value is 1100 W/m2,
-  - Te0: Initial epiphyte mat temperature. The default value is 293.15 K,
+  - Te_Ta: Initial guess for the difference between Te and Ta. The default value is -0.5 K,
   - tau: Fraction of transpiration of the host tree. The default value is 0.15,
-  - Topt: Optimum air temperature for stomata conductance. The default value
-  is 293.15 K,
+  - Topt: Optimum air temperature for stomata conductance. The default value is 293.15 K,
   - t0: Sunrise time. The default value is 7 am LST, and
   - wf: Water-Biomass weight ratio. Default value is 4.
 
@@ -69,10 +59,8 @@ Output parameters:
   - psi_0: Water potential when stomata are completely closed in m
   - psi_1: Water potential when stomata are completely open in m
   - rho_s: Epiphyte mat density in kg/m3,
-  - Se_max: Maximum water level of epiphyte tank in mm,
-  - SWclr: if the weather data has a short wave radiation larger than the
-  default SWclr, the code defines the max shortwave radiation as the new
+  - Se_max: Maximum water level of epiphyte mat in mm,
+  - SWclr: if the weather data has a shortwave radiation larger than the default SWclr, the code defines the max shortwave radiation as the new
   Clear Sky Shortwave radiation in W/m2,
-  - theta_fc: Volumetric water content of the epiphyte mat at the field
-  capacity in m3/m3, and
-  - theta_wp: Volumetric water content of the epiphyte mat at wilting point m3/m3
+  - theta_fc: Volumetric water content of the epiphyte mat at field capacity in m3/m3, and
+  - theta_wp: Volumetric water content of the epiphyte mat at wilting point in m3/m3
